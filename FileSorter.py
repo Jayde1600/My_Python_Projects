@@ -1,7 +1,12 @@
 import os
 import shutil
 
+# Make sure to change the folder_path based on the files you want to sort
+# This is for windows and your file path will be different to mine so find
+# your file path.
+
 folder_path = 'C:/Users/neome/Downloads'
+
 
 def createFolder(folder_path, sub_folder):
     sub_folder_path = os.path.join(folder_path, sub_folder)
@@ -18,15 +23,13 @@ def sortingFiles(folder_path):
                 sub_folder = f"{extension.upper()} Files"
                 sub_folder_path = createFolder(folder_path, sub_folder)
                 file_path = os.path.join(folder_path, files)
-                shutil.move(file_path, sub_folder_path)
-                print(f"Moved {files} to -> {sub_folder}")
+                create_loc = os.path.join(sub_folder, files)
+
+                if not os.path.exists(create_loc):
+                    shutil.move(file_path, sub_folder_path)
+                    print(f"Moved {files} to -> {sub_folder}/")
+                else:
+                    print(f"Skipped: {files} already exists in {sub_folder}/")
 
 
 sortingFiles(folder_path)
-
-if os.path.isdir(folder_path):
-    print("Folder Sorter is in progress...")
-    print("Job Complete")
-
-else:
-    print("Folder path is incorrect or doesn't exist")
