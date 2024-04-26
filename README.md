@@ -6,3 +6,5 @@ folder_path = 'C:/Users/neome/Downloads' and run the program
 
 For Mac, I am not sure on how to get the folder path but you can search that up and once you get it, you can copy the folder path onto the (folder_path = 'C:/Users/neome/Downloads')
 line of code.
+
+If the files have already been sorted, the program will not do anything. You should try a different path where your files have not been sorted yet.
